@@ -9,8 +9,9 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to root_url
     else
+      flash[:danger] ="Invalid account!"
       render 'new' 
-      flash[:danger] ="invalid account!"
+      
     end
   end
 
