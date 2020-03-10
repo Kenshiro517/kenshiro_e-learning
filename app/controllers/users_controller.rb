@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       flash[:success] ="Welcome to the E-learning!"
-      redirect_to "#"
+      redirect_to root_url
     else
       render 'new'
     end
