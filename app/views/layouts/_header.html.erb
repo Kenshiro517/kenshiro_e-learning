@@ -15,17 +15,35 @@
                 <%= link_to "About",static_pages_about_path, class: "nav-link" %>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#">
-                <%= link_to "Signup",signup_path, class: "nav-link" %>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#">
-                <%= link_to "Signin","#", class: "nav-link" %>
-            </a>
-        </li>
-        
+
+         <% if logged_in? %>
+            <li><%= link_to "Users", users_path, class: "nav-link" %></li>
+            <li><%= link_to "Lessons", users_path, class: "nav-link" %></li>
+             <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <%= current_user.name %> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><%= link_to "Profile", "#", class: "dropdown-item" %></li>
+                        <li><%= link_to "Edit Profile", "#", class: "dropdown-item" %></li>
+                        <li class="divider"></li>
+                        <li>
+                            <%= link_to "Sign out", logout_path, method: :delete, class: "dropdown-item" %>
+                        </li>
+                    </ul>
+                </li>
+        <% else %>
+            <li class="nav-item">
+                <a href="#">
+                    <%= link_to "Signup",signup_path, class: "nav-link" %>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <%= link_to "Signin",login_path, class: "nav-link" %>
+                </a>
+            </li>
+        <% end %> 
         </ul>
     </div>
 </nav>
