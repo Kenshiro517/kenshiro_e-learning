@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Bootstrap - source: https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+
+gem 'carrierwave', '~> 2.0'
+
