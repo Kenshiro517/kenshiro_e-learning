@@ -10,8 +10,9 @@
                 <div class="card-body"!>
                     <%= user_avatar(@user,'avatar_size') %>
                     <h5 class="card-title"><%= @user.name %></h5>
-                    <p class="card-text"> <%= @user.email %></p>
-                    <a href="#" class="btn btn-primary">Follow</a>
+                    <p class="card-text mb-6"> <%= @user.email %></p>
+                    <%= render 'follow_form'%>
+                    <%= render 'stats' %>
                 </div>
             </div>
         </div>

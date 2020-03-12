@@ -7,5 +7,5 @@ module UsersHelper
       @avatar_user = image_tag( 'default.jpg', class: classes)
     end
   end
-
+  
 end
