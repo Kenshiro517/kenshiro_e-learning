@@ -7,5 +7,7 @@ module UsersHelper
       @avatar_user = image_tag( 'default.jpg', class: classes)
     end
   end
-
+  def current_user?(user)
+    user == current_user
+  end
 end
