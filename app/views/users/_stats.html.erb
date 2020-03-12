@@ -1,10 +1,9 @@
-<% @user ||= current_user %>
-<div class="stats">
+<div class="stats mt-2">
     <strong id="following" class="stat">
       <%= @user.followings.count %>
     </strong>
     following
-    <strong id="followers" class="stat">
+    <strong id="followers" class="stat  ml-2">
       <%= @user.followers.count %>
     </strong>
     followers
