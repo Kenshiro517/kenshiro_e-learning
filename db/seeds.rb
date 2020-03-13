@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.create(
+  name: "Admin user",
+  email: "admin@gmail.com",
+  password: "password",
+  admin: true
+)
+
 
 50.times do |n|
   name  = Faker::Name.name
