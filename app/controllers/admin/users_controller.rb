@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy 
     @user = User.find(params[:id])
-    @user.destroy(admin: false)
+    @user.update(admin: false)
     redirect_to admin_users_url
   end
 
