@@ -1,5 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
+  before_action :logged_in_user
+  before_action :admin_user 
+
   def new
     @category = Category.new
   end
@@ -14,21 +17,13 @@ class Admin::CategoriesController < ApplicationController
     end
   end  
 
-  
   def index
     @categories = Category.paginate(page: params[:page], per_page: 10)
   end
  
-  def show
-    @category = Category.find(params[:id])
-  end
-
-
   private
     def category_params
       params.require(:category).permit(:title, :description)
-    end
-
-
+    end 
 
 end
