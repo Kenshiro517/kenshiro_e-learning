@@ -1,0 +1,38 @@
+<div class="col-8 m-auto text-center">
+    <h1>Administrate Categories</h1>
+    <%= link_to "Create category", new_admin_category_path, class: "btn btn-primary" %>
+    <div class="pagination justify-content-center mt-4">
+        <%= will_paginate %>
+    </div>
+    <div class="row">
+        <table class="table mt-4">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @categories.each do |category|%>
+                <tr>
+                    <td><%= category.title %></td>
+                    <td><%= category.description %></td>
+                    <td>
+                        <%= link_to "Edit","#",class:"btn btn-outline-primary btn-block"%>
+                        <%= link_to "Delete","#",class:"btn btn-outline-secondary btn-block"%>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+    <div class="pagination justify-content-center mt-4">
+        <%= will_paginate %>
+    </div>
+    <%= link_to "Back",admin_home_path,class:"btn btn-outline-secondary px-5 mb-4"%>
+</div>
+
+
+
+
