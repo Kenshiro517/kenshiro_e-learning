@@ -23,6 +23,29 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(id: params[:category_id])
+    @word = Word.findgit (id: params[:id])
+  end
+
+  def update
+    @word = Word.find(params[:id])
+    if @word.update_attributes(word_params)
+      flash[:success] ="Successfully updated!"
+      redirect_to admin_category_words_url
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+    flash[:danger] ="You deleted a category!"
+    redirect_to admin_category_words_url
+  end
+ 
+
 
 
   private
