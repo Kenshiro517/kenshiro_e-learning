@@ -23,8 +23,11 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+
+
   private
-  def word_params
-    params.require(:word).permit(:content, choices_attributes: [:id, :content, :correct])
-  end
+    def word_params
+      params.require(:word).permit(:content, choices_attributes: [:id, :content, :correct])
+    end
+
 end
