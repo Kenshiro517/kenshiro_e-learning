@@ -25,7 +25,7 @@ class Admin::WordsController < ApplicationController
 
   def edit
     @category = Category.find(id: params[:category_id])
-    @word = Word.findgit (id: params[:id])
+    @word = Word.find(id: params[:id])
   end
 
   def update
