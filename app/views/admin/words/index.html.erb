@@ -28,7 +28,7 @@
                     <td><%= word.content %></td>
                     <td><%= word.correct_answer%></td>
                     <td>
-                        <%= link_to "Edit", edit_admin_category_word_path(@category,word),class:"btn btn-outline-primary btn-block"%>
+                        <%= link_to "Edit",edit_admin_category_word_path(@category,word),class:"btn btn-outline-primary btn-block"%>
                         <%= link_to "Delete",admin_category_word_path(@category,word),method: :delete, data: {confirm: "Are you sure to delete word?"}, class:"btn btn-outline-secondary btn-block"%>
                     </td>
                 </tr>
@@ -36,13 +36,12 @@
         </tbody>
         </table>
     <%else%>
-        <h3 class="mx-auto">There is no word</h3>
+        <h3 class="mx-auto">There is no words</h3>
     <%end%>
     </div>
      <div class="pagination justify-content-center mt-4">
         <%= will_paginate %>
     </div>
-    
     <%= link_to "Back",admin_categories_path,class:"btn btn-outline-secondary px-5 mb-4"%>
 </div>
 
