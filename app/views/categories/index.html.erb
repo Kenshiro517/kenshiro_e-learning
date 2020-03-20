@@ -1,0 +1,39 @@
+<div class="col-8 m-auto text-center">
+    <h1>Administrate Categories</h1>
+    <%=link_to "All","#",class:"btn btn-outline-primary mx-2"%>
+    <%=link_to "Learned","#",class:"btn btn-outline-primary mx-2"%>
+    <%=link_to "Not yet","#",class:"btn btn-outline-primary mx-2"%>
+        <div class="pagination justify-content-center mt-4">
+            <%= will_paginate %>
+        </div>
+        <div class="row">
+        <% if @categories.any? %>
+                <% @categories.each do |category|%>
+                <div class="col-6">
+                    <div class="card mx-2 my-2">
+                        <div class="card-header">
+                            <h5 class="card-title"><%= link_to category.title,"#",class:"float-left"%></h5>
+                            <div class="stats float-right">
+                                <strong class="stat">
+                                    <%= pluralize(category.words.count,"Word") %>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted float-left"><%= category.description %></h6>
+                            <%=link_to "start lesson","#",class:"float-right btn btn-outline-secondary"%>
+                        </div>
+                        
+                    </div>
+                </div>
+                <% end %>
+        <% else %>
+            <h3 class="mx-auto">There is no category.</h3>
+        <% end %>
+        </div>
+        <div class="pagination justify-content-center mt-4">
+            <%= will_paginate %>
+        </div>
+    <%= link_to "Back","#",class:"btn btn-outline-secondary px-5 mb-4"%>
+</div>
+
