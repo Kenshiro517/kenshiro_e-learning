@@ -20,7 +20,8 @@ class AnswersController < ApplicationController
   end
 
   private
-  def answer_params
-    params.require(:answer).permit(:word_id, :choice_id)
-  end
+    def answer_params
+      params.require(:answer).permit(:word_id, :choice_id)
+    end
+
 end

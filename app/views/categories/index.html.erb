@@ -20,9 +20,9 @@
                             <h6 class="card-subtitle mb-2 text-muted float-left"><%= category.description %></h6>
                             <% lesson = current_user.lesson_taken(category.id)%>
                             <% if lesson.nil? %>
-                                <%=link_to "start lesson",lessons_path(category_id: category.id),method: :post,class:"float-right btn btn-outline-secondary"%>
+                                <%=link_to "Start Lesson",lessons_path(category_id: category.id),method: :post,class:"float-right btn btn-outline-secondary"%>
                             <% else %>
-                                <%=link_to "Show result","#",class:"float-right btn btn-outline-primary"%>
+                                <%=link_to "Show Result","#",class:"float-right btn btn-outline-primary"%>
                             <% end %>
                         </div>
                         
