@@ -1,13 +1,15 @@
 class AnswersController < ApplicationController
 
+  before_action :logged_in_user
+
   def new
     @answer = Answer.new
     @lesson = Lesson.find(params[:lesson_id])
     @category = Category.find_by(id: @lesson.category_id)
 
     if @lesson.next_word.nil?
-        @lesson.update(result: @lesson.lesson_results)
-        redirect_to root_url
+      @lesson.update(result: @lesson.lesson_results)
+      redirect_to lesson_url(@lesson)
     end
   end
 

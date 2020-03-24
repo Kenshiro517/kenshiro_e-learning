@@ -1,0 +1,37 @@
+<div class="container text-center">
+    <h2><%= @lesson.category.title %></h2>
+    <h5>This is your result</h5>
+    <h6><%= @lesson.result %> of <%= @lesson.category.words.count %></h6>
+    <div class="pagination justify-content-center mt-4">
+        <%= will_paginate @answers %>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Word</th>
+                <th scope="col">Your Answer</th>
+                <th scope="col">Correct Answer</th>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @answers.each do |answer| %>
+                <tr>
+                    <td><%= answer.word.content %></td>
+                    <td><%= answer.choice.content %></td>
+                    <td><%= answer.word.correct_answer %></td>
+                    <td>
+                        <% if answer.choice.content == answer.word.correct_answer %>
+                            ✅
+                        <% else %>
+                            ❎
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="pagination justify-content-center mt-4">
+        <%= will_paginate @answers %>
+    </div>
+</div>
