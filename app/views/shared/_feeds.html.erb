@@ -1,0 +1,31 @@
+<div class="row">
+    <% if @activities.any? %>
+        <% @activities.each do |activity| %>
+            <div class="col-3 mb-3">
+                <%= user_avatar(activity.user,"small-size") %>
+            </div>   
+            <div class="col-9 mb-3  row">
+                <% if activity.action_type == "Lesson"%>
+                    <% if activity.user == current_user %>
+                        <%= link_to "You", user_path(current_user) %>learned 
+                        <%= activity.action.result %> of <%= activity.action.category.words.count%> in <%= link_to activity.action.category.title, lesson_path(activity.action.id)%>
+                    <%else%>
+                        <%= link_to activity.user.name, user_path(activity.user)%> learned <%= activity.action.result %> of <%= activity.action.category.words.count%> in <%= link_to activity.action.category.title, lesson_path(activity.action.id)%>
+                    <%end%>
+                    
+                <% else %>
+                    <% followed_user = User.find_by(id: activity.action.following_id) %>
+                    <% if activity.user == current_user %>
+                        <%= link_to "You", user_path(current_user) %> followed <%= link_to followed_user.name, user_path(followed_user)%>
+                    <%else%>
+                        <%= link_to activity.user.name, user_path(activity.user)%> followed <%= link_to followed_user.name, user_path(followed_user) %>
+                    <%end%>    
+                <% end %>
+                <%= time_ago_in_words(activity.created_at)%> ago
+            </div>    
+        <%end%>
+        
+    <% else %>
+        <h5>There is nothing to show</h5>
+    <% end %>
+</div>
