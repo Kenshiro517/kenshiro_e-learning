@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+* {
+  font-family: 'Roboto Slab', serif;
+}
 
 .avatar_size{
   width: 150px;
@@ -26,3 +29,33 @@
 .filtering{
   width: 25%;
 }
+
+.bg-image-home{
+  background-image: image-url('books.jpg');
+  background-size:  cover;
+}
+
+.bg-image-about{
+  background-image: image-url('foreigner.jpg');
+  background-size:  cover;
+}
+
+.bg-mask{
+  background: rgba(255,255,255,0.4);
+}
+.yellow{
+ color: yellow;
+ font-size: 20px;
+}
+.orange{
+  color: orange;
+  font-size: 20px;
+ }
+ .red{
+  color: red;
+  font-size: 20px;
+ }
+ .green{
+   color: green;
+   font-size: 20px;
+ }
